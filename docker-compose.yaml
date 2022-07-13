@@ -1,0 +1,18 @@
+version: "3.9"  # optional since v1.27.0
+
+services:
+  udagram-frontend:
+    ports:
+      - "8100:8100"
+
+  udagram-api-feed:
+    ports:
+      - "8080:8080"
+
+  udagram-api-user:
+    ports:
+      - "8080:8080"
+
+  udagram-reverseproxy:
+    ports:
+      - "8080:8080"
