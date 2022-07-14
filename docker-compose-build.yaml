@@ -1,28 +1,32 @@
 version: "3.9"  # optional since v1.27.0
 
 services:
-  udagram-frontend:
+  udagram_frontend:
     build:
       context: ./udagram-frontend/
       args:
         - TEST_ARG_FRONTEND=test-arg-frontend
+    image: udagram-frontend
 
-  udagram-api-feed:
-    build:
-      context: ./udagram-api-feed/
-      args:
-        - TEST_ARG_API_FEED=test-arg-api-feed
-
-  udagram-api-user:
-    build:
-      context: ./udagram-api-user/
-      args:
-        - TEST_ARG_API_USER=test-arg-api-user
-
-  udagram-reverseproxy:
+  udagram_reverseproxy:
     build:
       context: ./udagram-reverseproxy/
       args:
         - TEST_ARG_API_REVERSEPROXY=test-arg-reverseproxy
+    image: udagram-reverseproxy
     environment:
       - TEST_ENV_API_FEED=test-env-reverseproxy
+
+  udagram_api_feed:
+    build:
+      context: ./udagram-api-feed/
+      args:
+        - TEST_ARG_API_FEED=test-arg-api-feed
+    image: udagram-api-feed
+
+  udagram_api_user:
+    build:
+      context: ./udagram-api-user/
+      args:
+        - TEST_ARG_API_USER=test-arg-api-user
+    image: udagram-api-user
