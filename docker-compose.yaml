@@ -1,21 +1,21 @@
 version: "3.9"  # optional since v1.27.0
 
 services:
-  udagram_frontend:
+  udagram-frontend:
     image: udagram-frontend
     ports:
       - "8100:80"
 
-  udagram_reverseproxy:
+  udagram-reverseproxy:
     image: udagram-reverseproxy
     ports:
       - 8200:8200
     restart: always
     depends_on:
-      - udagram_api_feed
-      - udagram_api_user
+      - udagram-api-feed
+      - udagram-api-user
 
-  udagram_api_feed:
+  udagram-api-feed:
     image: udagram-api-feed
     ports:
       - "8300:8300"
@@ -32,7 +32,7 @@ services:
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
 
-  udagram_api_user:
+  udagram-api-user:
     image: udagram-api-user
     ports:
       - "8400:8400"
