@@ -13,6 +13,10 @@ Run in local:
 		docker image prune --all
 		# Run this command from the directory where you have the "docker-compose-build.yaml" file present
 		docker-compose -f docker-compose-build.yaml build --parallel
+	
 	Run containers:
 		source udagram-api-user/set_env.sh
 		docker-compose -f ./docker-compose.yaml -f ./docker-compose-build.yaml up -d
+	
+	URL:
+		http://localhost:8100/
