@@ -1,18 +1,48 @@
 version: "3.9"  # optional since v1.27.0
 
 services:
-  udagram-frontend:
+  udagram_frontend:
+    image: udagram-frontend
     ports:
-      - "8100:8100"
+      - "8100:80"
 
-  udagram-api-feed:
+  udagram_reverseproxy:
+    image: udagram-reverseproxy
     ports:
-      - "7900:7900"
+      - 8200:8200
+    restart: always
+    depends_on:
+      - udagram_api_feed
+      - udagram_api_user
 
-  udagram-api-user:
+  udagram_api_feed:
+    image: udagram-api-feed
     ports:
-      - "8000:8000"
+      - "8300:8300"
+    volumes:
+      - $HOME/.aws:/root/.aws
+    environment:
+      POSTGRES_USERNAME: $POSTGRES_USERNAME
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD 
+      POSTGRES_DB: $POSTGRES_DB
+      POSTGRES_HOST: $POSTGRES_HOST
+      AWS_REGION: $AWS_REGION
+      AWS_PROFILE: $AWS_PROFILE 
+      AWS_BUCKET: $AWS_BUCKET
+      JWT_SECRET: $JWT_SECRET
+      URL: "http://localhost:8100"
 
-  udagram-reverseproxy:
+  udagram_api_user:
+    image: udagram-api-user
     ports:
-      - "8200:8200"
+      - "8400:8400"
+    environment:
+      POSTGRES_USERNAME: $POSTGRES_USERNAME
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD 
+      POSTGRES_DB: $POSTGRES_DB 
+      POSTGRES_HOST: $POSTGRES_HOST
+      AWS_REGION: $AWS_REGION 
+      AWS_PROFILE: $AWS_PROFILE 
+      AWS_BUCKET: $AWS_BUCKET
+      JWT_SECRET: $JWT_SECRET
+      URL: "http://localhost:8100"
