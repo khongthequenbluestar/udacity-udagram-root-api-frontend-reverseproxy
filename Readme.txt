@@ -24,4 +24,5 @@ Run in local:
 			docker ps -a
 	
 	URL:
-		http://localhost:8100/
+		frontend: http://localhost:8100/
+		reverseproxy: http://localhost:8200/api/v0/feed
