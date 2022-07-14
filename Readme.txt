@@ -17,6 +17,7 @@ Run in local:
 	Run containers:
 		source udagram-api-user/set_env.sh
 		docker-compose up
+		or
 		docker-compose -f ./docker-compose.yaml -f ./docker-compose-build.yaml up -d
 		
 		check:
