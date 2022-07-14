@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-udagram-api-frontend-reverseproxy
+data:
+  POSTGRES_HOST: "ducta11-database-postgresql.c3ygjquxz3dy.us-east-2.rds.amazonaws.com"
+  POSTGRES_DB: "project3"
+  AWS_BUCKET: "arn:aws:s3:::ducta11-568020567778-project3"
+  AWS_REGION: "us-east-2"
+  AWS_PROFILE: "default"
+  URL: "http://localhost:8100"
