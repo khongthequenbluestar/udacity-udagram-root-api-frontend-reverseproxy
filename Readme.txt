@@ -1,4 +1,4 @@
-Run in local:
+Setup:
 	Copy docker-compose.yaml & docker-compose-build.yaml to root of all projects (parent of projects):
 	/root-project/docker-compose.yaml
 	/root-project/docker-compose-build.yaml
@@ -25,5 +25,9 @@ Run in local:
 			docker ps -a
 	
 	URL:
-		frontend: http://localhost:8100/
-		reverseproxy: http://localhost:8200/api/v0/feed
+		Local:
+			frontend: http://localhost:8100/
+			reverseproxy: http://localhost:8200/api/v0/feed
+		Online:
+			frontend: http://a44bf957b196646ffac41a8af284227b-1901262689.us-east-2.elb.amazonaws.com:8100/
+			reverseproxy: http://ab817ed21af5444e588228063a826797-1002143127.us-east-2.elb.amazonaws.com:8200/api/v0/feed
