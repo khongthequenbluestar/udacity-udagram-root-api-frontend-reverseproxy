@@ -40,26 +40,36 @@ spec:
               key: URL
 
         - name: POSTGRES_USERNAME
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false # default setting; "xxx" must exist
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_USERNAME
+                  optional: false # same as default; "xxx" must exist and include a key named "xxx"
         - name: POSTGRES_PASSWORD
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_PASSWORD
+                  optional: false
         - name: JWT_SECRET
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: JWT_SECRET
+                  optional: false
 
         - name: AWS_ACCESS_KEY_ID
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_ACCESS_KEY_ID
+                  optional: false
         - name: AWS_SECRET_ACCESS_KEY
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_SECRET_ACCESS_KEY
+                  optional: false
 
 
     - name: udacity-udagram-api-user
@@ -98,26 +108,36 @@ spec:
               key: URL
 
         - name: POSTGRES_USERNAME
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false # default setting; "xxx" must exist
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_USERNAME
+                  optional: false # same as default; "xxx" must exist and include a key named "xxx"
         - name: POSTGRES_PASSWORD
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_PASSWORD
+                  optional: false
         - name: JWT_SECRET
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: JWT_SECRET
+                  optional: false
 
         - name: AWS_ACCESS_KEY_ID
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_ACCESS_KEY_ID
+                  optional: false
         - name: AWS_SECRET_ACCESS_KEY
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_SECRET_ACCESS_KEY
+                  optional: false
 
 
     - name: udacity-udagram-frontend
@@ -156,26 +176,36 @@ spec:
               key: URL
 
         - name: POSTGRES_USERNAME
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false # default setting; "xxx" must exist
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_USERNAME
+                  optional: false # same as default; "xxx" must exist and include a key named "xxx"
         - name: POSTGRES_PASSWORD
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_PASSWORD
+                  optional: false
         - name: JWT_SECRET
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: JWT_SECRET
+                  optional: false
 
         - name: AWS_ACCESS_KEY_ID
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_ACCESS_KEY_ID
+                  optional: false
         - name: AWS_SECRET_ACCESS_KEY
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_SECRET_ACCESS_KEY
+                  optional: false
 
 
     - name: ducta11-kubernetes-udagram-reverseproxy
@@ -214,24 +244,34 @@ spec:
               key: URL
 
         - name: POSTGRES_USERNAME
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false # default setting; "xxx" must exist
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_USERNAME
+                  optional: false # same as default; "xxx" must exist and include a key named "xxx"
         - name: POSTGRES_PASSWORD
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: POSTGRES_PASSWORD
+                  optional: false
         - name: JWT_SECRET
-          secret:
-            secretName: secret-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-env-udacity-udagram
+                  key: JWT_SECRET
+                  optional: false
 
         - name: AWS_ACCESS_KEY_ID
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_ACCESS_KEY_ID
+                  optional: false
         - name: AWS_SECRET_ACCESS_KEY
-          secret:
-            secretName: secret-aws-env-udacity-udagram
-            optional: false
+          valueFrom:
+              secretKeyRef:
+                  name: secret-aws-env-udacity-udagram
+                  key: AWS_SECRET_ACCESS_KEY
+                  optional: false
 
