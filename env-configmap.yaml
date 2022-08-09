@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: config-map-udagram-api-frontend-reverseproxy
+  name: configmap-env-udagram
 data:
   POSTGRES_HOST: "ducta11-database-postgresql.c3ygjquxz3dy.us-east-2.rds.amazonaws.com"
   POSTGRES_DB: "project3"
