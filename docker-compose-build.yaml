@@ -17,14 +17,14 @@ services:
     environment:
       - TEST_ENV_API_FEED=test-env-reverseproxy
 
-  udagram_api_feed:
+  udacity-udagram-api-feed:
     build:
       context: ./udagram-api-feed/
       args:
         - TEST_ARG_API_FEED=test-arg-api-feed
     image: udagram-api-feed
 
-  udagram_api_user:
+  udacity-udagram-api-user:
     build:
       context: ./udagram-api-user/
       args:
