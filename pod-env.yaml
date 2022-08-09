@@ -1,0 +1,237 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-env-udacity-udagram
+spec:
+  containers:
+    - name: udacity-udagram-api-feed
+      image: khongthequenbluestar/udacity-udagram-api-feed:latest
+      env:
+        # Define the environment variable
+        - name: POSTGRES_HOST # Notice that this name here can different from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram   # The ConfigMap name.
+              key: POSTGRES_HOST                    # The key to fetch from ConfigMap.
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: POSTGRES_DB
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_BUCKET
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_REGION
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_PROFILE
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: URL
+
+        - name: POSTGRES_USERNAME
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false # default setting; "xxx" must exist
+        - name: POSTGRES_PASSWORD
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+        - name: JWT_SECRET
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+
+        - name: AWS_ACCESS_KEY_ID
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+        - name: AWS_SECRET_ACCESS_KEY
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+
+
+    - name: udacity-udagram-api-user
+      image: khongthequenbluestar/udacity-udagram-api-user:latest
+      env:
+        # Define the environment variable
+        - name: POSTGRES_HOST # Notice that this name here can different from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram   # The ConfigMap name.
+              key: POSTGRES_HOST                    # The key to fetch from ConfigMap.
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: POSTGRES_DB
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_BUCKET
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_REGION
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_PROFILE
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: URL
+
+        - name: POSTGRES_USERNAME
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false # default setting; "xxx" must exist
+        - name: POSTGRES_PASSWORD
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+        - name: JWT_SECRET
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+
+        - name: AWS_ACCESS_KEY_ID
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+        - name: AWS_SECRET_ACCESS_KEY
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+
+
+    - name: udacity-udagram-frontend
+      image: khongthequenbluestar/udacity-udagram-frontend:latest
+      env:
+        # Define the environment variable
+        - name: POSTGRES_HOST # Notice that this name here can different from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram   # The ConfigMap name.
+              key: POSTGRES_HOST                    # The key to fetch from ConfigMap.
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: POSTGRES_DB
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_BUCKET
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_REGION
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_PROFILE
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: URL
+
+        - name: POSTGRES_USERNAME
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false # default setting; "xxx" must exist
+        - name: POSTGRES_PASSWORD
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+        - name: JWT_SECRET
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+
+        - name: AWS_ACCESS_KEY_ID
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+        - name: AWS_SECRET_ACCESS_KEY
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+
+
+    - name: ducta11-kubernetes-udagram-reverseproxy
+      image: khongthequenbluestar/udacity-udagram-reverseproxy:latest
+      env:
+        # Define the environment variable
+        - name: POSTGRES_HOST # Notice that this name here can different from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram   # The ConfigMap name.
+              key: POSTGRES_HOST                    # The key to fetch from ConfigMap.
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: POSTGRES_DB
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_BUCKET
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_REGION
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: AWS_PROFILE
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-env-udacity-udagram
+              key: URL
+
+        - name: POSTGRES_USERNAME
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false # default setting; "xxx" must exist
+        - name: POSTGRES_PASSWORD
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+        - name: JWT_SECRET
+          secret:
+            secretName: secret-env-udacity-udagram
+            optional: false
+
+        - name: AWS_ACCESS_KEY_ID
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+        - name: AWS_SECRET_ACCESS_KEY
+          secret:
+            secretName: secret-aws-env-udacity-udagram
+            optional: false
+
