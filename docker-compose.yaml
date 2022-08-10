@@ -1,12 +1,12 @@
 version: "3.9"  # optional since v1.27.0
 
 services:
-  udagram_frontend:
+  ducta11-kubernetes-udagram-frontend-svc:
     image: udagram-frontend
     ports:
       - "8100:80"
 
-  udagram_reverseproxy:
+  ducta11-kubernetes-udagram-reverseproxy-svc:
     image: udagram-reverseproxy
     ports:
       - 8200:8200
