@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: configmap-env-udacity-udagram
 data:
-  POSTGRES_HOST: "ducta11-database-postgresql.c3ygjquxz3dy.us-east-2.rds.amazonaws.com"
+  POSTGRES_HOST: "ducta11-database-postgresql.cnltxexkj7nl.us-east-2.rds.amazonaws.com"
   POSTGRES_DB: "project3"
-  AWS_BUCKET: "arn:aws:s3:::ducta11-568020567778-project3"
+  AWS_BUCKET: "arn:aws:s3:::ducta11-128267027515-project3"
   AWS_REGION: "us-east-2"
   AWS_PROFILE: "default"
   URL: "http://localhost:8100"
