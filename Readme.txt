@@ -29,5 +29,5 @@ Setup:
 			frontend: http://localhost:8100/
 			reverseproxy: http://localhost:8200/api/v0/feed
 		Online:
-			frontend: http://a44bf957b196646ffac41a8af284227b-1901262689.us-east-2.elb.amazonaws.com:8100/
-			reverseproxy: http://ab817ed21af5444e588228063a826797-1002143127.us-east-2.elb.amazonaws.com:8200/api/v0/feed
+			frontend: http://af1e348e7877a4ed8a3783d838d2677d-1490465786.us-east-2.elb.amazonaws.com
+			reverseproxy: http://aa56a16323e404ab7b43d71350c17893-32178222.us-east-2.elb.amazonaws.com:8200/api/v0/feed
